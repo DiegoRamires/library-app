@@ -1,2 +1,16 @@
 {{outlet}}
 <h1>Contact</h1>
+<form>
+  <div class="form-group">
+    <label for="InputEmail1">Email address</label>
+    {{input type="email" value=emailAddress class="form-control" placeholder="Please type the e-mail address." autofocus="autofocus"}}
+
+    <label for="message">Your Message</label>
+    {{textarea class="form-control" placeholder="Your message. (At least 5 characters.)" rows="7" value=message}}
+  </div>
+  <button type="button" class="btn btn-info" disabled={{isDisabled}} {{action 'sendMessage'}}>Send Message</button>
+
+  {{#if responseMessage}}
+    <div class="alert alert-success">{{responseMessage}}</div>
+  {{/if}}
+</form>
